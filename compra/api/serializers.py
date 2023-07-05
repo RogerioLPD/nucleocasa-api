@@ -10,7 +10,14 @@ class EmpresaCompraSerializer(ModelSerializer):
     class Meta:
         ref_name = "Empresa compra"
         model = Usuario
-        fields = ['foto', 'first_name', 'last_name', 'email', 'tipo']
+        fields = ['id', 'nome', 'tipo', ]
+
+
+class EspecificadorCompraSerializer(ModelSerializer):
+    class Meta:
+        ref_name = "Especificador compra"
+        model = Usuario
+        fields = ['id', 'nome', 'tipo', ]
 
 
 class EspecificadorSerializer(ModelSerializer):

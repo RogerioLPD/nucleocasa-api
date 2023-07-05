@@ -5,7 +5,7 @@ from django.urls import path, include, re_path
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 
-from compra.api.viewsets import CompraViewSet, CriarCompraViewSet, ComprasEspecificadorViewSet
+from compra.api.viewsets import CompraViewSet, CriarCompraViewSet, ComprasEspecificadorViewSet, NovaCompraView
 from empresa.api.viewsets import EmpresasViewSet
 from premio.api.viewsets import PremioViewSet
 from usuario.api.viewsets import *
@@ -41,6 +41,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('api/nova-compra/', NovaCompraView.as_view(), name='nova-compra'),
     path('login/', obtain_auth_token),
     path('change-password/', ChangePasswordView.as_view(), name='change-password'),
     path('password-reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
