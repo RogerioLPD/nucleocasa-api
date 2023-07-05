@@ -38,8 +38,8 @@ class ComprasEspecificadorViewSet(GenericViewSet, ListAPIView):
 
 class NovaCompraView(APIView):
     def post(self, request):
-        doc = self.request.data.dict()['doc']
-        valor = self.request.data.dict()['valor']
+        doc = self.request.data['doc']
+        valor = self.request.data['valor']
 
         try:
             # Buscar o usuário pelo CPF ou CNPJ
