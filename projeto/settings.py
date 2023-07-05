@@ -10,7 +10,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
     'drf_yasg',
     'rest_framework',
     'rest_framework.authtoken',
@@ -25,13 +24,11 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'projeto.corsMiddleware'
 ]
 
 ROOT_URLCONF = 'projeto.urls'
@@ -101,15 +98,6 @@ REST_FRAMEWORK = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CORS_ALLOW_ALL_ORIGINS = True  # If this is used then `CORS_ALLOWED_ORIGINS` will not have any effect
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ['*', "http://localhost:58293", "localhost:58293", ]
-CORS_ALLOWED_ORIGINS = [
-    "*", "http://localhost:58293", "localhost:58293",
-]  # If this is used, then not need to use `CORS_ALLOW_ALL_ORIGINS = True`
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    "*", "http://localhost:58293", "localhost:58293",
-]
 
 try:
     from .local_settings import *
