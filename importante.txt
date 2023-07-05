@@ -1,0 +1,68 @@
+upstream django {
+    server unix:///home/rogerio_pinheirodangui/nucleocasaa-api/mysite.sock;
+}
+
+server {
+    listen      80;
+    server_name example.com;
+    charset     utf-8;
+
+    client_max_body_size 75M;
+
+    location /media  {
+        alias /home/rogerio_pinheirodangui/nucleocasaa-api/media;
+    }
+
+    location /static {
+        alias /home/rogerio_pinheirodangui/nucleocasaa-api/static;
+    }
+
+    location / {
+        uwsgi_pass  django;
+        include     /home/rogerio_pinheirodangui/nucleocasaa-api/uwsgi_params;
+    }
+}
+
+
+[uwsgi]
+chdir           = /home/rogerio_pinheirodangui/nucleocasa-api
+module          = projeto.wsgi
+home            = /home/rogerio_pinheirodangui/venv
+master          = true
+processes       = 10
+socket          = /home/rogerio_pinheirodangui/nucleocasa-api/mysite.sock
+vacuum          = true
+chmod-socket    = 666
+
+sudo ln -s /home/rogerio_pinheirodangui/nucleocasa-api/nucleocasa-api.ini /etc/uwsgi/vassals/
+
+[Unit]
+Description=Django VPS uWSGI Emperor
+After=syslog.target
+
+[Service]
+ExecStart=/home/rogerio_pinheirodangui/venv/bin/uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data
+RuntimeDirectory=uwsgi
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+User=rogerio_pinheirodangui
+
+[Install]
+WantedBy=multi-user.target
+
+sudo chmod 664 /etc/systemd/system/nucleocasa-api.service
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable nucleocasa-api.service
+
+sudo systemctl start nucleocasa-api.service
+
+sudo systemctl restart nucleocasa-api.service
+
+sudo systemctl status nucleocasa-api.service
+
+journalctl -u nucleocasa-api.service
