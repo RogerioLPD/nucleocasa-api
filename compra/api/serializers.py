@@ -28,6 +28,9 @@ class EspecificadorSerializer(ModelSerializer):
 
 
 class CompraSerializer(ModelSerializer):
+    empresa = EmpresaCompraSerializer()
+    especificador = EspecificadorCompraSerializer()
+
     class Meta:
         model = Compra
         fields = "__all__"
