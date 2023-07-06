@@ -104,16 +104,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # CORS_ALLOW_ALL_ORIGINS: True
 
 CORS_ALLOWED_ORIGINS = [
-    # "https://nucleocasadecor.com.br",
+    "https://nucleocasadecor.com.br",
     # "https://apicasadecor.com:64621",
     # "https://apicasadecor.com:64621",
-    # "http://localhost:64621",
-    # "http://localhost:8080",
+    "http://localhost:64990",
+    "localhost:64990",
     # "http://localhost:8080",
     # "http://127.0.0.1:64621",
     # "http://127.0.0.1:9000",
     # "http://127.0.0.1:9000",
-    '*'
 ]
 
 try:
