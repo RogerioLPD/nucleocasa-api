@@ -108,7 +108,7 @@ CORS_ALLOWED_ORIGINS = [
     # "https://apicasadecor.com:64621",
     # "https://apicasadecor.com:64621",
     "http://localhost:64990",
-    "http://localhost:64990",
+    "http://localhost:60279",
     "http://localhost:49403",
     # "http://localhost:8080",
     # "http://127.0.0.1:64621",
