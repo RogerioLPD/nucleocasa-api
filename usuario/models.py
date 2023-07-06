@@ -41,7 +41,7 @@ class Usuario(AbstractUser):
     email = models.EmailField('E-mail', unique=True)
     nome = models.CharField('Nome', max_length=100)
     seguimento = models.CharField('Seguimento', max_length=40)
-    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES, default='EMPRESA')
+    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES, blank=True, null=True)
     cnpj = models.CharField('CNPJ', max_length=20, unique=True, blank=True, null=True)
     cpf = models.CharField('CPF', max_length=20, unique=True, blank=True, null=True)
     telefone = models.CharField('Telefone', max_length=20, blank=True, null=True)
