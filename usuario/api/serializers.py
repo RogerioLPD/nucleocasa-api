@@ -31,11 +31,11 @@ Serialzierss que gerenciam as Empresas
 
 
 class CriarEmpresaSerializer(ModelSerializer):
-    foto = Base64ImageField(required=True)
+    foto = Base64ImageField(required=False)
 
     class Meta:
         model = Usuario
-        fields = ['email', 'password', 'nome', 'cpf', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
+        fields = ['foto', 'email', 'password', 'nome', 'cpf', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
                   'numero',
                   'bairro', 'cidade', 'estado', ]
         extra_kwargs = {'password': {'write_only': True}}
@@ -64,11 +64,12 @@ Serialzierss que gerenciam as Especificadors
 
 
 class CriarEspecificadorSerializer(ModelSerializer):
+    foto = Base64ImageField(required=False)
     cpf = serializers.CharField(required=True)
 
     class Meta:
         model = Usuario
-        fields = ['email', 'password', 'nome', 'cpf', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
+        fields = ['foto', 'email', 'password', 'nome', 'cpf', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
                   'numero',
                   'bairro', 'cidade', 'estado', ]
         extra_kwargs = {'password': {'write_only': True}}

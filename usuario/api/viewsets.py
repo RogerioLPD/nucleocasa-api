@@ -63,7 +63,7 @@ ViewSets que gerenciam as Empresas
 class CriarEmpresaViewSet(GenericViewSet, CreateModelMixin):
     queryset = Usuario.objects.all()
     serializer_class = CriarEmpresaSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [IsAuthenticated, ]
 
 
 # Lista todos os usuários do tipo Empresa
