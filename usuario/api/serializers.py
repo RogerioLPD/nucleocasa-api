@@ -35,7 +35,9 @@ class CriarEmpresaSerializer(ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = ['foto', 'email', 'password', 'nome', 'cidade', ]
+        fields = ['email', 'password', 'nome', 'cpf', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
+                  'numero',
+                  'bairro', 'cidade', 'estado', ]
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -51,7 +53,8 @@ class EmpresaSerializer(ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = ['id', 'foto', 'email', 'nome', 'cnpj', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco', 'numero',
+        fields = ['id', 'foto', 'email', 'nome', 'cnpj', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
+                  'numero',
                   'bairro', 'cidade', 'estado', ]
 
 
