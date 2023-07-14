@@ -75,7 +75,7 @@ class CriarEspecificadorSerializer(ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
-        usuario = Usuario(username=validated_data['email'], **validated_data)
+        usuario = Usuario(username=validated_data['email'], tipo='ESPECIFICADOR', **validated_data)
         usuario.set_password(validated_data['password'])
         usuario.save()
         return usuario

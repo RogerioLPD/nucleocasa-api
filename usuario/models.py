@@ -46,7 +46,7 @@ class Usuario(AbstractUser):
     cpf = models.CharField('CPF', max_length=20, unique=True, blank=True, null=True)
     telefone = models.CharField('Telefone', max_length=20, blank=True, null=True)
     celular = models.CharField('Celular', max_length=20, blank=True, null=True)
-    endereco = models.CharField('Endereço', max_length=20, blank=True, null=True)
+    endereco = models.CharField('Endereço', max_length=1000, blank=True, null=True)
     numero = models.CharField('Número', max_length=10, blank=True, null=True)
     bairro = models.CharField('Bairro', max_length=30, blank=True, null=True)
     cidade = models.CharField('Cidade', max_length=30)
