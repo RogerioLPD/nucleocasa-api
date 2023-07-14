@@ -84,7 +84,6 @@ ViewSets que gerenciam os Espectadores
 class CriarEspecificadorViewSet(GenericViewSet, CreateModelMixin):
     queryset = Usuario.objects.all()
     serializer_class = CriarEspecificadorSerializer
-    permission_classes = [IsAuthenticated, ]
 
 
 class EspecificadorViewSet(GenericViewSet, ListAPIView):
