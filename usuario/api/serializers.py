@@ -69,7 +69,7 @@ class CriarEspecificadorSerializer(ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = ['foto', 'email', 'password', 'nome', 'cpf', 'tipo', 'seguimento', 'telefone', 'celular', 'endereco',
+        fields = ['foto', 'email', 'password', 'nome', 'cpf', 'seguimento', 'telefone', 'celular', 'endereco',
                   'numero',
                   'bairro', 'cidade', 'estado', ]
         extra_kwargs = {'password': {'write_only': True}}
