@@ -65,13 +65,10 @@ Serialzierss que gerenciam as Especificadors
 
 class CriarEspecificadorSerializer(ModelSerializer):
     foto = Base64ImageField(required=False)
-    cpf = serializers.CharField(required=True)
 
     class Meta:
         model = Usuario
-        fields = ['foto', 'email', 'password', 'nome', 'cpf', 'seguimento', 'telefone', 'celular', 'endereco',
-                  'numero',
-                  'bairro', 'cidade', 'estado', ]
+        fields = ['foto', 'email', 'password', 'nome',]
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):

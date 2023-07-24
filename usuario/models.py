@@ -49,7 +49,7 @@ class Usuario(AbstractUser):
     endereco = models.CharField('Endereço', max_length=1000, blank=True, null=True)
     numero = models.CharField('Número', max_length=10, blank=True, null=True)
     bairro = models.CharField('Bairro', max_length=30, blank=True, null=True)
-    cidade = models.CharField('Cidade', max_length=30)
+    cidade = models.CharField('Cidade', max_length=30, blank=True, null=True)
     estado = models.CharField('Estado', max_length=30, blank=True, null=True)
     cep = models.CharField('CEP', max_length=12, blank=True, null=True)
     is_staff = models.BooleanField('Membro da Equipe', default=False)
