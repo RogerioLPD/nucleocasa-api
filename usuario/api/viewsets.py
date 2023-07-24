@@ -93,3 +93,12 @@ class EspecificadorViewSet(GenericViewSet, ListAPIView):
 
     def get_queryset(self):
         return self.queryset.filter(tipo="ESPECIFICADOR")
+
+
+class EspecificadorEditarViewSet(GenericViewSet, UpdateModelMixin):
+    queryset = Usuario.objects.all()
+    serializer_class = EspecificadorSerializer
+    permission_classes = [IsAuthenticated, ]
+
+    def get_object(self):
+        return self.queryset.get(email=self.request.user.email)
